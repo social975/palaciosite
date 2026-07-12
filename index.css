@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/*
+ * Tailwind v4 uses CSS-first configuration — there is no tailwind.config.js.
+ * Every brand color/font below becomes a real utility class automatically:
+ * --color-wine  ->  bg-wine, text-wine, border-wine, ring-wine, etc.
+ * --font-display -> font-display
+ */
+@theme {
+  --color-wine: #6e2a3a;
+  --color-wine-deep: #4e1e29;
+  --color-wine-soft: #f1e4e7;
+  --color-beige: #f5f0e6;
+  --color-limestone: #eae2d2;
+  --color-limestone-deep: #ded2b8;
+  --color-cornflower: #5c7fa8;
+  --color-cornflower-soft: #dee7f0;
+  --color-cornflower-deep: #3e5c80;
+  --color-brown: #8a6e4b;
+  --color-brown-soft: #efe6d5;
+  --color-ink: #2b241f;
+  --color-ink-soft: #5c5348;
+  --color-muted: #9a8f80;
+  --color-line: #ded3c2;
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --radius-card: 0.375rem;
+  --radius-btn: 0.25rem;
+}
+
+@layer base {
+  html {
+    @apply font-sans;
+  }
+  body {
+    @apply bg-beige text-ink antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-[var(--radius-btn)] px-5 py-2.5
+      text-sm font-semibold transition-colors;
+  }
+  .btn-primary {
+    @apply btn bg-wine text-white hover:bg-wine-deep;
+  }
+  .btn-secondary {
+    @apply btn border border-wine text-wine hover:bg-wine-soft;
+  }
+  .card {
+    @apply rounded-[var(--radius-card)] border border-line bg-white;
+  }
+}
